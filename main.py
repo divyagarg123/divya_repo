@@ -3,9 +3,9 @@ import torch
 from torchvision import datasets, transforms
 import albumentations as A
 from albumentations.pytorch import ToTensorV2
-from models import *
+from .models import *
 import torch.optim as optim
-import utils as ut
+import divya_repo.utils as ut
 from tqdm import tqdm
 
 
@@ -158,8 +158,9 @@ def train_and_test_model():
     return train_losses_all_epochs, train_acc_all_epochs, test_losses_all_epochs, test_acc_all_epochs,pred,target,data
 
 
-train_losses, train_acc, test_losses, test_acc, pred, target, data = train_and_test_model()
+def main():
+  train_losses, train_acc, test_losses, test_acc, pred, target, data = train_and_test_model()
 
-ut.draw_train_test_acc_loss(train_losses, train_acc, test_losses, test_acc)
-ut.draw_misclassified_images(pred, target, data, "misclassified with resnet")
-ut.draw_gradcam_images(model,data, pred, target)
+  ut.draw_train_test_acc_loss(train_losses, train_acc, test_losses, test_acc)
+  ut.draw_misclassified_images(pred, target, data, "misclassified with resnet")
+  ut.draw_gradcam_images(model,data, pred, target)
