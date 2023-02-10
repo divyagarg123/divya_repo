@@ -163,4 +163,4 @@ def main():
 
   ut.draw_train_test_acc_loss(train_losses, train_acc, test_losses, test_acc)
   ut.draw_misclassified_images(pred, target, data, "misclassified with resnet")
-  ut.draw_gradcam_images(model,data, pred, target)
+  ut.draw_gradcam_images(model,data, pred, target,device)
