@@ -84,7 +84,7 @@ def draw_gradcam_vis(pred, target, grad_cam_imgs, main_title):
     plt.show()
 
 
-def draw_gradcam_images(model, misclass_images, pred, target):
+def draw_gradcam_images(model, misclass_images, pred, target, device):
     target_layers = [model.layer3[-1]]
     cam = GradCAM(model=model, target_layers=target_layers, use_cuda=1)
     rgb_imgs = unnormalize_and_get_rgb_images(misclass_images)
